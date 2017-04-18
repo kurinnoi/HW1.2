@@ -41,7 +41,21 @@ public class Main {
             i++;
         }
         System.out.println("Initial array: " + Arrays.toString(a));
-        Arrays.sort(a);
+
+        for (i= a.length - 1; i >= 2; i--) {
+            boolean sorted = true;
+            for (int j = 0; j < i; j++) {
+                if (a[j] > a[j + 1]) {
+                    int temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                    sorted = false;
+                }
+            }
+            if (sorted) {
+                break;
+            }
+        }
         System.out.println("Sorted array: " + Arrays.toString(a));
-    }
+        }
 }
